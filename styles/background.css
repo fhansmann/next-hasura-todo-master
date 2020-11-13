@@ -1,0 +1,11 @@
+.background {
+  background: url(../public/background.svg) repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+.background-full {
+  background: url(../public/background-v2.svg) repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
