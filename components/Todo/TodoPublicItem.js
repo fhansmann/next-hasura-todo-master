@@ -20,6 +20,11 @@ const TodoPublicItem = ({ todo }) => {
             {formattedTimeStamp}
           </span>
         </td>
+        <td class='px-6 py-4 whitespace-no-wrap'>
+          <div class='text-sm leading-5 font-medium text-gray-900'>
+            {todo.user.name}
+          </div>
+        </td>
       </tr>
     </tbody>
   )

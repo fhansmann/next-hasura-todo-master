@@ -20,17 +20,19 @@ const IndexPage = () => {
     return <Login />
   }
   return (
-    <div className="background-full">
-            <Header />
-      <div class="flex mb-4">
-  <div class="w-2/3">
-  <TodoInput />
-      <TodoPrivateList />
-  </div>
-  <div class="w-1/3 " >
-  <TodoPublicList />
-  </div >
-</div>
+    <div className='background-full'>
+      <Header />
+      <div class='flex m-4'>
+        <div class='w-3/5'>
+        <p class="text-base leading-6 text-red-600 font-semibold tracking-wide uppercase">PRIVATE FEED</p>
+          <TodoInput />
+          <TodoPrivateList />
+        </div>
+        <div class='w-2/5 mt-4'>
+        <p class="text-base leading-6 text-red-600 font-semibold tracking-wide uppercase">PUBLIC FEED</p>
+          <TodoPublicList />
+        </div>
+      </div>
     </div>
   )
 }
