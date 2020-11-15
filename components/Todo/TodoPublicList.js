@@ -17,6 +17,7 @@ import TodoPublicItem from "./TodoPublicItem"
 
 const TodoPublicListSubscription = () => {
   const { loading, error, data } = useSubscription(NOTIFY_NEW_PUBLIC_TODOS);
+  console.log(data)
   if (loading) {
     return (
       <div class='fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center'>

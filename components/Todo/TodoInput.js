@@ -49,11 +49,11 @@ const TodoInput = ({ isPublic = false }) => {
         onSubmit={handleSubmit(onSubmit)}
         class='bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4'
       >
-        <textarea
+        <input
           name='input'
           placeholder='What needs to be done?'
           ref={register({
-            required: "Sorry, this is required"
+            required: "Required"
           })}
           class='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
         />

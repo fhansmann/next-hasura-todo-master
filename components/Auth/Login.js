@@ -5,11 +5,11 @@ const Login = () => {
     <div className="background">
     <div class='flex h-screen'>
       <div class="my-auto mx-32">
-      <div class='lg:text-center bg-gray-300 p-3 rounded-lg w-2/3'>
+      <div class='lg:text-center bg-gray-100 p-3 rounded-lg w-2/3'>
         <div class='font-bold text-xl mb-2'>
-          Welcome to Otter, the coolest to-do list!
+          Welcome to OTTER, the sharable to-do list!
         </div>
-        <p class='text-gray-700 text-base mb-2'>
+        <p class='text-gray-700 text-base mb-4'>
           Otter let's you safely create a to-do list and share selected items publicly in the otter feed.
         </p>
         <p class='text-gray-700 text-base mb-4'>Login to continue!</p>

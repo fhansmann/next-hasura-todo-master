@@ -5,10 +5,7 @@ import TodoItem from "./TodoItem"
 
 const GET_MY_TODOS = gql`
   query getMyTodos {
-    todos(
-      where: { is_public: { _eq: false } }
-      order_by: { created_at: desc }
-    ) {
+    todos(order_by: { created_at: desc }) {
       id
       title
       created_at
@@ -42,6 +39,9 @@ const TodoPrivateList = (props) => {
                     </th>
                     <th class='px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider'>
                       Public
+                    </th>
+                    <th class='px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider'>
+                      Link
                     </th>
                     <th class='px-6 py-3 bg-gray-50'></th>
                   </tr>
