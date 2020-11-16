@@ -1,4 +1,3 @@
-import { Image } from "@chakra-ui/react"
 import auth0 from "../../lib/auth0"
 
 export async function getServerSideProps({ req, res, params }) {

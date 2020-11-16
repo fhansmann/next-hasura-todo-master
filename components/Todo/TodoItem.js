@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/react-hooks"
 import { format, parseISO } from "date-fns"
 import gql from "graphql-tag"
 import { Switch } from "@chakra-ui/react"
-import Link from "next/link"
+import Link from "next/link";
 
 import { GET_MY_TODOS } from "./TodoPrivateList"
 
@@ -87,16 +87,14 @@ const TodoItem = ({ todo }) => {
           </span>
         </td>
         <td class='px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium'>
-          <Switch
-            colorScheme='red'
-            onChange={toggleTodo}
-            isChecked={todo.is_completed}
-          />
+        <Switch colorScheme="red" onChange={toggleTodo} isChecked={todo.is_completed}/>
         </td>
         <td class='px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium'>
-          <Link href='/item/[id]' as={`/item/${todo.id}`}>
-            <a class='text-teal-500 hover:text-teal-700'>Details</a>
-          </Link>
+        <Link href="/item/[id]" as={`/item/${todo.id}`}>
+                <a class='text-teal-500 hover:text-teal-700'>
+                  Details
+                </a>
+        </Link>
         </td>
         <td class='px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium'>
           <button

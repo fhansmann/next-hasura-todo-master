@@ -2,34 +2,38 @@ import { useSubscription, gql } from "@apollo/client"
 
 import TodoPublicItem from "./TodoPublicItem"
 
- const NOTIFY_NEW_PUBLIC_TODOS = gql`
+const NOTIFY_NEW_PUBLIC_TODOS = gql`
   subscription notifyNewPublicTodos {
-    todos (where: { is_completed: { _eq: true}}, order_by: {created_at: desc }) {
+    todos(
+      where: { is_completed: { _eq: true } }
+      order_by: { created_at: desc }
+    ) {
       title
       id
       created_at
       user {
-      name
-    }
+        name
+        id
+      }
     }
   }
- `;
+`
 
 const TodoPublicListSubscription = () => {
-  const { loading, error, data } = useSubscription(NOTIFY_NEW_PUBLIC_TODOS);
-  console.log(data)
+  const { loading, error, data } = useSubscription(NOTIFY_NEW_PUBLIC_TODOS)
+  console.log("public", data)
   if (loading) {
     return (
       <div class='fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center'>
-      <div class='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900'></div>
-    </div>
-    );
+        <div class='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900'></div>
+      </div>
+    )
   }
   if (error) {
-    return <span>Error</span>;
+    return <span>Error</span>
   }
-  return <TodoPublicList todos={data.todos} />;
-};
+  return <TodoPublicList todos={data.todos} />
+}
 
 const TodoPublicList = (props) => {
   const { todos } = props
@@ -70,4 +74,3 @@ const TodoPublicList = (props) => {
 }
 
 export default TodoPublicListSubscription
-

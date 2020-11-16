@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
 import { useForm } from "react-hook-form"
 import { GET_MY_TODOS } from "./TodoPrivateList"
+import { useFetchUser } from "../../lib/user"
 
 const ADD_TODO = gql`
   mutation($todo: String!, $isPublic: Boolean!) {
@@ -12,12 +13,14 @@ const ADD_TODO = gql`
         title
         created_at
         is_completed
+        user_id
       }
     }
   }
 `
 
 const TodoInput = ({ isPublic = false }) => {
+  const { user } = useFetchUser()
   const { handleSubmit, register, errors, reset } = useForm()
   const onSubmit = (value) => {
     const { input: toDo } = value
@@ -44,11 +47,11 @@ const TodoInput = ({ isPublic = false }) => {
   })
 
   return (
-    <div class='w-full max-w-xs m-8'>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        class='bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4'
-      >
+    <div class='w-full max-w-xs m-8 bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+      <p class='text-base leading-6 text-teal-600 font-semibold tracking-wide mb-8'>
+        Hello, {user.nickname}
+      </p>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           name='input'
           placeholder='What needs to be done?'

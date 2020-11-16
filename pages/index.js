@@ -24,12 +24,16 @@ const IndexPage = () => {
       <Header />
       <div class='flex m-4'>
         <div class='w-3/5'>
-        <p class="text-base leading-6 text-red-600 font-semibold tracking-wide uppercase">PRIVATE FEED</p>
+          <p class='text-base leading-6 text-red-600 font-semibold tracking-wide uppercase ml-8 '>
+            PRIVATE FEED
+          </p>
           <TodoInput />
           <TodoPrivateList />
         </div>
-        <div class='w-2/5 mt-4'>
-        <p class="text-base leading-6 text-red-600 font-semibold tracking-wide uppercase">PUBLIC FEED</p>
+        <div class='w-2/5 mr-8'>
+          <p class='text-base leading-6 text-red-600 font-semibold tracking-wide uppercase ml-8'>
+            PUBLIC FEED
+          </p>
           <TodoPublicList />
         </div>
       </div>

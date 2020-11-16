@@ -1,30 +1,29 @@
-import { useQuery } from "@apollo/react-hooks"
+/* import { useQuery } from "@apollo/react-hooks"
+import { useFetchUser } from "../../lib/user"
 import gql from "graphql-tag"
 
 import TodoItem from "./TodoItem"
-import { useFetchUser } from "../../lib/user"
 
 const GET_MY_TODOS = gql`
-  query getMyTodos {
-    todos(order_by: { created_at: desc }) {
+  query getMyTodos($userId: String!) {
+    todos(
+      where: { user_id: { _eq: $userId } }
+      order_by: { created_at: desc }
+    ) {
       id
       title
       created_at
       is_completed
-      user_id
     }
   }
 `
 
 const TodoPrivateList = (props) => {
-  const { user } = useFetchUser()
   const { todos } = props
   const todoList = []
 
   todos.forEach((todo, index) => {
-    if (user.sub == todo.user_id) {
-      todoList.push(<TodoItem key={index} index={index} todo={todo} />)
-    }
+    todoList.push(<TodoItem key={index} index={index} todo={todo} />)
   })
 
   return (
@@ -62,7 +61,10 @@ const TodoPrivateList = (props) => {
 }
 
 const TodoPrivateListQuery = () => {
-  const { loading, error, data } = useQuery(GET_MY_TODOS)
+  const { user } = useFetchUser()
+  const { loading, error, data } = useQuery(GET_MY_TODOS, {
+    variables: { userId: user.sub }
+  })
 
   if (loading) {
     return (
@@ -80,3 +82,4 @@ const TodoPrivateListQuery = () => {
 
 export default TodoPrivateListQuery
 export { GET_MY_TODOS }
+ */
