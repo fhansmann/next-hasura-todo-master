@@ -7,7 +7,7 @@ const LogoutBtn = () => (
       Router.push("/api/logout")
     }}
   >
-    Log Out
+    LOG OUT
   </button>
 )
 
